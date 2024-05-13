@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otc-vite-react-frontend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     app: otc-vite-react-frontend-app
+  template:
+    metadata:
+      labels:
+        app: otc-vite-react-frontend-app
+    spec:
+      containers:
+      - name: otc-vite-react-frontend-app
+        image: yvonnetest/otc-vite-react-frontend-image:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

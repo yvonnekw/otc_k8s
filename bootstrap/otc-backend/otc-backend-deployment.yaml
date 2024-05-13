@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otc-backend
+  labels:
+    app: otc-backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: otc-backend
+      labels:
+        app: otc-backend
+    spec:
+      containers:
+        - name: otc-backend
+          image: yvonnetest/otc-docker-backend-image:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: otc-backend
+      
+    
