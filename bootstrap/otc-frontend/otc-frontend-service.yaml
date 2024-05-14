@@ -8,6 +8,5 @@ spec:
     app: otc-vite-react-frontend-app
   ports:
     - port: 80
-      protocol: TCP
       targetPort: 2000
       nodePort: 31000
